@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Patient Monitor — Professional Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">Patient Monitor</div>
+    <div class="subtitle">IoT Wearable — Live Demo</div>
+  </div>
+
+  <main class="dashboard">
+    <section class="left">
+      <div class="cards">
+        <div class="stat card">
+          <div class="label">Bed</div>
+          <div class="value" id="bed">bed 12</div>
+        </div>
+        <div class="stat card">
+          <div class="label">Heart Rate</div>
+          <div class="value large" id="hr">--</div>
+          <div class="unit">BPM</div>
+        </div>
+        <div class="stat card">
+          <div class="label">SpO2</div>
+          <div class="value large" id="sp">--</div>
+          <div class="unit">%</div>
+        </div>
+        <div class="stat card">
+          <div class="label">Temperature</div>
+          <div class="value" id="temp">--</div>
+          <div class="unit">°C</div>
+        </div>
+      </div>
+
+      <div class="chart card">
+        <canvas id="hrChart" height="140"></canvas>
+      </div>
+
+      <div class="controls card">
+        <div class="controls-row">
+          <input id="serialInput" placeholder="e.g. 78,98" />
+          <button id="sendBtn">Send</button>
+          <button id="randomBtn">Randomize</button>
+        </div>
+        <div class="controls-row">
+          <button id="sosBtn" class="danger">Simulate SOS</button>
+          <button id="fallBtn" class="danger">Simulate Fall</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="right">
+      <div class="card status-card">
+        <div class="status-header">System Status</div>
+        <div class="status-row"><span>Last update:</span> <span id="lastUpdate">—</span></div>
+        <div class="status-row"><span>Telegrams Sent:</span> <span id="alertsSent">0</span></div>
+        <div class="status-row"><span>Connection:</span> <span id="conn">Local Demo</span></div>
+      </div>
+
+      <div class="card log-card">
+        <div class="log-header">Event Log</div>
+        <div id="log" class="log-list"></div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
